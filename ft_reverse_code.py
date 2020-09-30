@@ -1,30 +1,31 @@
-def ft_reverse_code(g):
-    s = g
-    if g > 0:
-        f = ''
-        while g > 0:
-            n = str(g % 2)
-            f = n + f
-            g = int(g / 2)
-        while len(f) != 8:
-            f = '0' + f
+def ft_len(string):
+    count = 0
+    for i in string:
+        count += 1
+
+    return count
+
+def ft_straight_code(number):
+    if number > 0:
+        b = ''
+        while number > 0:
+            c = str(number % 2)
+            b = c + b
+            number = number // 2
+        while len(b) != 8:
+            b = '0' + b
+        return b
     else:
-        g = g * -1
-        f = ''
-        while g > 0:
-            n = str(g % 2)
-            f = n + f
-            g = int(g / 2)
-        while len(f) != 7:
-            f = '0' + f
-        f = '1' + f
-    a = '1'
-    if s > 0:
-        return f
-    else:
-        for i in f[1:]:
-            if i == '0':
-                a = a + '1'
-            else:
-                a = a + '0'
-        return a
+        number = number * -1
+        n = ''
+        while number > 0:
+            c = str(number % 2)
+            b = c + b
+            number = number // 2
+        while ft_len(b) != 7:
+            b = '0' + b
+        b = '1' + b
+        return b
+
+def ft_reverse_code(number):
+    return ft_straight_code(number)[::-1]
